@@ -1,0 +1,11 @@
+# このディレクトリ配下のファイルへの直接ブラウザアクセスを拒否する。
+# Apache 2.4以降
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+
+# Apache 2.2以前（古い環境向けフォールバック）
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
